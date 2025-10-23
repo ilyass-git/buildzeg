@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            console.log('Navigation link clicked:', this.href, this.textContent);
+            // Don't prevent default - let the link work normally
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
         });
@@ -440,7 +442,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 current = target;
                 clearInterval(timer);
             }
-            element.textContent = Math.floor(current) + (target >= 100 ? '%' : '+');
+            
+            // Format the number based on the original data-target
+            let displayValue = Math.floor(current);
+            if (target >= 100) {
+                displayValue += '%';
+            } else if (target === 24) {
+                displayValue += '/7';
+            } else {
+                displayValue += '+';
+            }
+            
+            element.textContent = displayValue;
         }, 20);
     };
     
@@ -448,18 +461,14 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const target = entry.target;
-                const text = target.textContent;
-                const number = parseInt(text.replace(/\D/g, ''));
+                const targetValue = parseInt(target.getAttribute('data-target'));
                 
-                if (text.includes('%')) {
-                    animateCounter(target, number);
-                } else if (text.includes('+')) {
-                    animateCounter(target, number);
-                }
-                
+                animateCounter(target, targetValue);
                 statsObserver.unobserve(target);
             }
         });
+    }, {
+        threshold: 0.3
     });
     
     statNumbers.forEach(stat => {
@@ -516,6 +525,166 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('error', function(e) {
     console.error('JavaScript Error:', e.error);
     // In production, you might want to send this to an error tracking service
+});
+
+// ===== FAQ ACCORDION FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', function() {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            if (isActive) {
+                item.classList.remove('active');
+            } else {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+
+// ===== HERO CAROUSEL FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.hero-carousel');
+    if (!carousel) return;
+    
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const indicators = carousel.querySelectorAll('.indicator');
+    let currentSlide = 0;
+    let carouselInterval;
+    
+    function showSlide(index) {
+        // Remove active class from all slides and indicators
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // Add active class to current slide and indicator
+        slides[index].classList.add('active');
+        indicators[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+    
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+    
+    function startCarousel() {
+        carouselInterval = setInterval(nextSlide, 4500); // Change slide every 4.5 seconds
+    }
+    
+    function stopCarousel() {
+        clearInterval(carouselInterval);
+    }
+    
+    // Initialize carousel
+    showSlide(0);
+    startCarousel();
+    
+    // Add click handlers to indicators
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', function() {
+            stopCarousel();
+            showSlide(index);
+            startCarousel();
+        });
+    });
+    
+    // Pause carousel on hover
+    carousel.addEventListener('mouseenter', stopCarousel);
+    carousel.addEventListener('mouseleave', startCarousel);
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+    
+    carousel.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+    });
+    
+    carousel.addEventListener('touchend', function(e) {
+        endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+            if (diff > 0) {
+                // Swipe left - next slide
+                nextSlide();
+            } else {
+                // Swipe right - previous slide
+                const prevIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
+                showSlide(prevIndex);
+            }
+            stopCarousel();
+            startCarousel();
+        }
+    });
+});
+
+// ===== CLIENTS SLIDER FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', function() {
+    const clientsTrack = document.getElementById('clients-track');
+    const prevBtn = document.getElementById('clients-prev');
+    const nextBtn = document.getElementById('clients-next');
+    
+    if (!clientsTrack || !prevBtn || !nextBtn) return;
+    
+    const clientLogos = clientsTrack.querySelectorAll('.client-logo');
+    const totalLogos = clientLogos.length;
+    let currentIndex = 0;
+    const logosPerView = 3; // Nombre de logos visibles à la fois
+    const maxIndex = Math.max(0, totalLogos - logosPerView);
+    
+    function updateSlider() {
+        const translateX = -(currentIndex * (100 / logosPerView));
+        clientsTrack.style.transform = `translateX(${translateX}%)`;
+        
+        // Désactiver les boutons aux extrémités
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex;
+    }
+    
+    function nextSlide() {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateSlider();
+        }
+    }
+    
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    }
+    
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Initialiser le slider
+    updateSlider();
+    
+    // Gestion du redimensionnement
+    window.addEventListener('resize', function() {
+        const newMaxIndex = Math.max(0, totalLogos - logosPerView);
+        if (currentIndex > newMaxIndex) {
+            currentIndex = newMaxIndex;
+        }
+        updateSlider();
+    });
 });
 
 // ===== CONSOLE WELCOME MESSAGE =====

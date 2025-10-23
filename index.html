@@ -32,20 +32,21 @@
         <nav class="nav">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="BUILDZEG Logo">
+                    <a href="index.html" class="logo-container">
+                        <img src="images/logo.png" alt="BUILDZEG Logo" class="logo-img">
+                        <span class="logo-text">BuildZeg</span>
                     </a>
                 </div>
                 <div class="nav-menu" id="nav-menu">
                     <ul class="nav-list">
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link active">Accueil</a>
+                            <a href="index.html" class="nav-link active">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="services.html" class="nav-link">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a href="projets.html" class="nav-link">Projets</a>
+                            <a href="projets.html" class="nav-link">Projects</a>
                         </li>
                         <li class="nav-item">
                             <a href="contact.html" class="nav-link">Contact</a>
@@ -80,7 +81,32 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern architectural space" class="hero-img">
+                    <div class="hero-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active">
+                                <img src="images/crew.png" alt="Modern architectural space" class="hero-img">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/crew2.png" alt="Luxury construction project" class="hero-img">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/work5.jpg" alt="Contemporary office design" class="hero-img">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/work10.jpg" alt="Renovation project" class="hero-img">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/work8.jpg" alt="Interior design excellence" class="hero-img">
+                            </div>
+                        </div>
+                        <div class="carousel-indicators">
+                            <span class="indicator active" data-slide="0"></span>
+                            <span class="indicator" data-slide="1"></span>
+                            <span class="indicator" data-slide="2"></span>
+                            <span class="indicator" data-slide="3"></span>
+                            <span class="indicator" data-slide="4"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -110,7 +136,7 @@
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1581578731548-c6a0c3f2f2c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Turnkey Fit-Out Services" class="service-img">
+                            <img src="images/logo.png" alt="Turnkey Fit-Out Services" class="service-img">
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">Turnkey Fit-Out</h3>
@@ -119,7 +145,7 @@
                     </div>
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Design & Build Services" class="service-img">
+                            <img src="images/design2.jpg" alt="Design & Build Services" class="service-img">
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">Design & Build</h3>
@@ -128,7 +154,7 @@
                     </div>
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Renovation Services" class="service-img">
+                            <img src="images/work2.jpg" alt="Renovation Services" class="service-img">
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">Renovation</h3>
@@ -137,7 +163,7 @@
                     </div>
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1581578731548-c6a0c3f2f2c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Maintenance Services" class="service-img">
+                            <img src="images/work3.jpg" alt="Maintenance Services" class="service-img">
                         </div>
                         <div class="service-content">
                             <h3 class="service-title">Maintenance</h3>
@@ -179,12 +205,97 @@
                         <h3 class="feature-title">Innovation</h3>
                         <p class="feature-description">Cutting-edge design solutions and modern construction techniques for contemporary spaces.</p>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <span class="icon">⭐</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clients Section -->
+        <section class="clients-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nos Clients</h2>
+                    <p class="section-description">Des entreprises de confiance qui nous font confiance</p>
+                </div>
+                <div class="clients-slider">
+                    <button class="clients-nav-btn clients-prev" id="clients-prev">‹</button>
+                    <div class="clients-track" id="clients-track">
+                        <div class="client-logo">
+                            <img src="images/almasaood.jpeg" alt="almasaood" class="client-img">
                         </div>
-                        <h3 class="feature-title">Excellence</h3>
-                        <p class="feature-description">Dedication to delivering exceptional results that exceed expectations and stand the test of time.</p>
+                        <div class="client-logo">
+                            <img src="images/Samsunglogo.png" alt="Samsung" class="client-img">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/03224C/ffffff?text=Attijariwafa" alt="Attijariwafa Bank" class="client-img">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/03224C/ffffff?text=BMCE" alt="BMCE Bank" class="client-img">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/03224C/ffffff?text=OCP" alt="OCP Group" class="client-img">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/03224C/ffffff?text=ONCF" alt="ONCF" class="client-img">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/03224C/ffffff?text=Royal+Air+Maroc" alt="Royal Air Maroc" class="client-img">
+                        </div>
+                        <div class="client-logo">
+                            <img src="https://via.placeholder.com/150x80/03224C/ffffff?text=Marjane" alt="Marjane" class="client-img">
+                        </div>
+                    </div>
+                    <button class="clients-nav-btn clients-next" id="clients-next">›</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 13H11V3H3V13ZM3 21H11V15H3V21ZM13 21H21V11H13V21ZM13 3V9H21V3H13Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="150">0</h3>
+                            <p class="stat-label">Projets Réalisés</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L13.5 2.5L16.17 5.17C15.24 5.06 14.32 5 13.4 5H10.6C9.68 5 8.76 5.06 7.83 5.17L10.5 2.5L9 1L3 7V9H21ZM12 8C13.1 8 14 8.9 14 10C14 11.1 13.1 12 12 12C10.9 12 10 11.1 10 10C10 8.9 10.9 8 12 8ZM12 14C15.31 14 18 16.69 18 20V22H6V20C6 16.69 8.69 14 12 14Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="8">0</h3>
+                            <p class="stat-label">Années d'Expérience</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2ZM12 6.5L11.5 9.5L8.5 10L11.5 10.5L12 13.5L12.5 10.5L15.5 10L12.5 9.5L12 6.5Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="98">0</h3>
+                            <p class="stat-label">% de Satisfaction</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="24">0</h3>
+                            <p class="stat-label">Support 24/7</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -200,7 +311,7 @@
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="VIP Villa Oujda" class="project-img">
+                            <img src="images/villa.png" alt="VIP Villa Oujda" class="project-img">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">VIP Villa</h3>
@@ -210,7 +321,7 @@
                     </div>
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Crown Prince Court Bouarfa" class="project-img">
+                            <img src="images/crown2.png" alt="Crown Prince Court Bouarfa" class="project-img">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Crown Prince Court</h3>
@@ -220,10 +331,10 @@
                     </div>
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Samsung Offices Casablanca" class="project-img">
+                            <img src="images/samsung.HEIC" alt="Offices Casablanca" class="project-img">
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Samsung Offices</h3>
+                            <h3 class="project-title">Offices layout</h3>
                             <p class="project-description">Modern office renovation with contemporary design elements and premium fit-out solutions.</p>
                             <span class="project-location">Casablanca - Renovation</span>
                         </div>
@@ -231,6 +342,63 @@
                 </div>
                 <div class="section-footer">
                     <a href="projets.html" class="btn btn-outline">View all projects</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Questions Fréquentes</h2>
+                    <p class="section-description">Trouvez les réponses aux questions les plus courantes</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Quels types de projets réalisez-vous ?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nous réalisons tous types de projets architecturaux et de construction : villas de luxe, bâtiments commerciaux, bureaux, rénovations complètes, et projets de fit-out. Notre expertise couvre le design, la construction et la rénovation.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Quelle est la durée moyenne d'un projet ?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La durée varie selon la complexité du projet. Un projet de rénovation peut prendre 2-4 mois, tandis qu'une construction complète peut nécessiter 6-12 mois. Nous fournissons toujours un planning détaillé lors de la phase de planification.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Proposez-vous des garanties sur vos travaux ?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Oui, nous offrons des garanties complètes sur tous nos travaux : 10 ans pour la structure, 2 ans pour les finitions, et 1 an pour l'équipement. Nous assurons également un suivi post-livraison pour garantir votre satisfaction.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Comment obtenez-vous un devis personnalisé ?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Contactez-nous via notre formulaire en ligne ou par téléphone. Nous organiserons une visite sur site gratuite pour évaluer vos besoins et vous fournir un devis détaillé et personnalisé sous 48h.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Travaillez-vous dans tout le Maroc ?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Oui, nous intervenons dans tout le Maroc. Nos équipes sont mobiles et nous avons des partenaires locaux dans les principales villes. Les frais de déplacement sont inclus dans nos devis pour les projets en dehors de Casablanca.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
