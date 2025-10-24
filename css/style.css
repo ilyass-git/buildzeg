@@ -1015,6 +1015,7 @@ p {
     opacity: 0.9;
     max-width: 700px;
     margin: 0 auto;
+    color: #ffffff !important;
 }
 
 /* ===== SERVICES PAGE ===== */
@@ -1435,6 +1436,41 @@ p {
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
     opacity: 0.8;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a365d 100%);
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 2.8rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cta-description {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* ===== FOOTER ===== */
