@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BUILDZEG | Get a Quote for Your Project</title>
+    <meta name="description" content="Contact BUILDZEG for your architectural and construction needs. Call +212 695 323 597 or email younes.zeghari@buildzeg.om. Located in Casablanca, Morocco.">
+    <meta name="keywords" content="BUILDZEG contact, construction quote, architectural services, Casablanca, Morocco, phone, email">
+    <meta name="author" content="BUILDZEG">
+    <meta name="theme-color" content="#1a2c43">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo-container">
+                        <img src="images/logo.png" alt="BUILDZEG Logo" class="logo-img">
+                        <span class="logo-text">BuildZeg</span>
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="services.html" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="projets.html" class="nav-link">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link active">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-description">Get in touch with our team to discuss your project requirements</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2 class="contact-title">Get In Touch</h2>
+                    <p class="contact-description">
+                        Ready to start your next project? Contact our team of experts to discuss your requirements 
+                        and discover how BUILDZEG can bring your architectural vision to life.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-content">
+                                <h4>Phone</h4>
+                                <p>+212 695 323 597</p>
+                                <p>Available 24/7 for urgent matters</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-content">
+                                <h4>Email</h4>
+                                <p>younes.zeghari@buildzeg.om</p>
+                                <p>We respond within 24 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-content">
+                                <h4>Location</h4>
+                                <p>Casablanca, Morocco</p>
+                                <p>Serving all of Morocco</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-content">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p>Saturday: 9:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2 class="form-title">Send us a Message</h2>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                            <div class="form-error" id="name-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <div class="form-error" id="email-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                            <div class="form-error" id="phone-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" class="form-label">Service Required</label>
+                            <select id="service" name="service" class="form-select">
+                                <option value="">Select a service</option>
+                                <option value="turnkey-fitout">Turnkey Fit-Out</option>
+                                <option value="design-build">Design & Build</option>
+                                <option value="renovation">Renovation</option>
+                                <option value="joinery">Joinery</option>
+                                <option value="drywall">Drywall Systems</option>
+                                <option value="flooring">Floor Finishing</option>
+                                <option value="painting">Painting Services</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="consultation">Consultation</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget" class="form-label">Project Budget</label>
+                            <select id="budget" name="budget" class="form-select">
+                                <option value="">Select budget range</option>
+                                <option value="under-50k">Under 50,000 MAD</option>
+                                <option value="50k-100k">50,000 - 100,000 MAD</option>
+                                <option value="100k-250k">100,000 - 250,000 MAD</option>
+                                <option value="250k-500k">250,000 - 500,000 MAD</option>
+                                <option value="500k-1m">500,000 - 1,000,000 MAD</option>
+                                <option value="over-1m">Over 1,000,000 MAD</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline" class="form-label">Project Timeline</label>
+                            <select id="timeline" name="timeline" class="form-select">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP</option>
+                                <option value="1-month">Within 1 month</option>
+                                <option value="3-months">Within 3 months</option>
+                                <option value="6-months">Within 6 months</option>
+                                <option value="1-year">Within 1 year</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Project Description *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Please describe your project requirements, location, and any specific needs..." required></textarea>
+                            <div class="form-error" id="message-error"></div>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="consent" name="consent" class="form-checkbox" required>
+                            <label for="consent" class="checkbox-label">
+                                I agree to the processing of my personal data for the purpose of responding to my inquiry. *
+                            </label>
+                            <div class="form-error" id="consent-error"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary form-submit">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading">Sending...</span>
+                        </button>
+                    </form>
+                    
+                    <!-- Success Message -->
+                    <div class="form-success" id="form-success" style="display: none;">
+                        <div class="success-icon">✓</div>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for contacting BUILDZEG. We have received your message and will get back to you within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="map-title">Our Location</h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div class="map-content">
+                        <h3>Casablanca, Morocco</h3>
+                        <p>📍 BUILDZEG Headquarters</p>
+                        <p>🏢 Professional Architectural Services</p>
+                        <p>🌍 Serving All of Morocco</p>
+                        <p>📞 +212 695 323 597</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">How long does a typical project take?</h3>
+                    <p class="faq-answer">Project timelines vary depending on scope and complexity. Small renovations typically take 2-4 weeks, while large construction projects can take 6-12 months. We provide detailed timelines during consultation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you provide free consultations?</h3>
+                    <p class="faq-answer">Yes, we offer free initial consultations to discuss your project requirements, assess the scope of work, and provide preliminary estimates. This helps us understand your vision and provide accurate proposals.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What areas do you serve?</h3>
+                    <p class="faq-answer">We provide services throughout Morocco, with our main operations in Casablanca. We have completed projects in Rabat, Marrakech, Oujda, Bouarfa, and other major cities across the country.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you offer maintenance services?</h3>
+                    <p class="faq-answer">Yes, we provide comprehensive maintenance services for all our completed projects. This includes regular inspections, repairs, and updates to ensure your space remains in perfect condition.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What is your payment structure?</h3>
+                    <p class="faq-answer">We typically work with milestone-based payments. A deposit is required to start the project, with progress payments throughout construction, and final payment upon completion and your satisfaction.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Are you insured and licensed?</h3>
+                    <p class="faq-answer">Yes, BUILDZEG is fully licensed and insured. We carry comprehensive liability insurance and all necessary permits to ensure your project is completed safely and legally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Your Project?</h2>
+                <p class="cta-description">Contact us today for a free consultation and let us bring your architectural vision to life</p>
+                <div class="cta-buttons">
+                    <a href="tel:+212695323597" class="btn btn-primary">Call Now</a>
+                    <a href="mailto:younes.zeghari@buildzeg.om" class="btn btn-secondary">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">BUILDZEG</h3>
+                    <p class="footer-description">
+                        Elevate your property with trusted architectural services. 
+                        We design and build spaces where elegance meets purpose.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projets.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                    <div class="footer-contact">
+                        <p>📞 +212 695 323 597</p>
+                        <p>✉️ younes.zeghari@buildzeg.com</p>
+                        <p>📍 Casablanca, Morocco</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BUILDZEG. All rights reserved. | Design meets precision</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
