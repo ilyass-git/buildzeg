@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://buildzeg.com/sitemap.xml
+
+# Disallow admin or private directories if any
+# Disallow: /admin/
+# Disallow: /private/
+
