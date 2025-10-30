@@ -159,47 +159,6 @@
                             <div class="form-error" id="phone-error"></div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="service" class="form-label">Service Required</label>
-                            <select id="service" name="service" class="form-select">
-                                <option value="">Select a service</option>
-                                <option value="turnkey-fitout">Turnkey Fit-Out</option>
-                                <option value="design-build">Design & Build</option>
-                                <option value="renovation">Renovation</option>
-                                <option value="joinery">Joinery</option>
-                                <option value="drywall">Drywall Systems</option>
-                                <option value="flooring">Floor Finishing</option>
-                                <option value="painting">Painting Services</option>
-                                <option value="maintenance">Maintenance</option>
-                                <option value="consultation">Consultation</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="budget" class="form-label">Project Budget</label>
-                            <select id="budget" name="budget" class="form-select">
-                                <option value="">Select budget range</option>
-                                <option value="under-50k">Under 50,000 MAD</option>
-                                <option value="50k-100k">50,000 - 100,000 MAD</option>
-                                <option value="100k-250k">100,000 - 250,000 MAD</option>
-                                <option value="250k-500k">250,000 - 500,000 MAD</option>
-                                <option value="500k-1m">500,000 - 1,000,000 MAD</option>
-                                <option value="over-1m">Over 1,000,000 MAD</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="timeline" class="form-label">Project Timeline</label>
-                            <select id="timeline" name="timeline" class="form-select">
-                                <option value="">Select timeline</option>
-                                <option value="asap">ASAP</option>
-                                <option value="1-month">Within 1 month</option>
-                                <option value="3-months">Within 3 months</option>
-                                <option value="6-months">Within 6 months</option>
-                                <option value="1-year">Within 1 year</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
-                        </div>
                         
                         <div class="form-group">
                             <label for="message" class="form-label">Project Description *</label>
@@ -284,6 +243,69 @@
             </div>
         </div>
     </footer>
+
+     <!-- ✅ EmailJS Script -->
+     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+     <script>
+         // Initialize EmailJS
+         (function() {
+             emailjs.init({
+                 publicKey: "bPhlQjyp-hKx7Z1Z4" // 🔑 ta clé publique (ne pas changer)
+             });
+         })();
+ 
+         // Handle form submission
+         document.getElementById("contact-form").addEventListener("submit", function(event) {
+             event.preventDefault();
+             // Prevent other submit listeners (from global script) from running on this form
+             if (event.stopImmediatePropagation) {
+                 event.stopImmediatePropagation();
+             }
+ 
+             const btn = event.target.querySelector("button");
+             btn.disabled = true;
+             btn.textContent = "Sending...";
+ 
+             emailjs.send("service_ntz0utf", "template_ymfdbdf", {
+                 from_name: document.getElementById("name").value,
+                 from_email: document.getElementById("email").value,
+                 phone: document.getElementById("phone").value,
+                 message: document.getElementById("message").value
+             })
+             .then(() => {
+                const successEl = document.getElementById("form-success");
+                if (successEl) {
+                    successEl.style.display = "block";
+                }
+                const errorEl = document.getElementById("form-error");
+                if (errorEl) {
+                    errorEl.style.display = "none";
+                }
+                 btn.disabled = false;
+                 btn.textContent = "Send Message";
+                 document.getElementById("contact-form").reset();
+
+                // Auto-hide success message after ~3 seconds
+                setTimeout(() => {
+                    if (successEl) {
+                        successEl.style.display = "none";
+                    }
+                }, 3000);
+             })
+             .catch(() => {
+                const errorEl = document.getElementById("form-error");
+                if (errorEl) {
+                    errorEl.style.display = "block";
+                }
+                const successEl = document.getElementById("form-success");
+                if (successEl) {
+                    successEl.style.display = "none";
+                }
+                 btn.disabled = false;
+                 btn.textContent = "Send Message";
+             });
+         });
+     </script>
 
     <script src="js/script.js"></script>
 </body>

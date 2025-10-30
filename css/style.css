@@ -1646,16 +1646,16 @@ p {
 
 .form-success {
     text-align: center;
-    padding: 3rem;
+    padding: 1.2rem 1rem; /* smaller padding for a less tall green box */
     background: #d4edda;
     border: 1px solid #c3e6cb;
-    border-radius: 12px;
+    border-radius: 10px;
     color: #155724;
 }
 
 .success-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+    font-size: 2rem; /* smaller icon */
+    margin-bottom: 0.6rem;
     color: #28a745;
 }
 
