@@ -1,0 +1,22 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Dependencies / build output
+node_modules/
+dist/
+
+# Logs and env
+*.log
+.env
+.env.*
+
+# Original high-resolution photos (keep them outside the site)
+*.HEIC
+*.heic

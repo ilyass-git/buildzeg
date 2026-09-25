@@ -1,5 +1,14 @@
 # 🎨 BUILDZEG Website - Changelog
 
+## Version 2.1 - Corrections et performance (septembre 2026)
+
+- **Email** : `buildzeg.om` → `buildzeg.com` sur toutes les pages
+- **Formulaire de contact** : validation réactivée, envoi EmailJS vers `younes.zeghari@buildzeg.com`, message d'erreur visible si l'envoi échoue
+- **Images** : compressées (≈ 90 Mo → 4 Mo), chargement différé (`loading="lazy"`), 22 images inutilisées supprimées
+- **SEO** : `lang="en"`, image de partage social dédiée (`og-image.jpg`), vrais favicons, sitemap mis à jour
+- **Code** : suppression du code dupliqué / inutilisé et des `console.log`, lien « Skip to main content » réparé
+- **Textes** : fautes corrigées (Design, Apartment, Keeping), copyright 2026
+
 ## Version 2.0 - Mise à jour de l'identité visuelle
 
 ### ✅ Modifications Appliquées

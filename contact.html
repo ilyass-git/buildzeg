@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - BUILDZEG | Get a Quote for Your Project</title>
-    <meta name="description" content="Contact BUILDZEG for your architectural and construction needs. Call +212 695 323 597 or email younes.zeghari@buildzeg.om. Located in Casablanca, Morocco. Get a free quote for your project.">
+    <meta name="description" content="Contact BUILDZEG for your architectural and construction needs. Call +212 695 323 597 or email younes.zeghari@buildzeg.com. Located in Casablanca, Morocco. Get a free quote for your project.">
     <meta name="keywords" content="BUILDZEG contact, construction quote, architectural services, Casablanca, Morocco, phone, email, fit-out services, renovation quote, design build contact">
     <meta name="author" content="BUILDZEG">
     <meta name="theme-color" content="#1a2c43">
@@ -13,34 +13,34 @@
     
     <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Contact Us - BUILDZEG | Get a Quote for Your Project">
-    <meta property="og:description" content="Contact BUILDZEG for your architectural and construction needs. Call +212 695 323 597 or email younes.zeghari@buildzeg.om. Located in Casablanca, Morocco.">
+    <meta property="og:description" content="Contact BUILDZEG for your architectural and construction needs. Call +212 695 323 597 or email younes.zeghari@buildzeg.com. Located in Casablanca, Morocco.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://buildzeg.com/contact.html">
-    <meta property="og:image" content="https://buildzeg.com/images/logo.png">
+    <meta property="og:image" content="https://buildzeg.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="BUILDZEG">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact Us - BUILDZEG">
     <meta name="twitter:description" content="Contact BUILDZEG for your architectural and construction needs in Morocco.">
-    <meta name="twitter:image" content="https://buildzeg.com/images/logo.png">
+    <meta name="twitter:image" content="https://buildzeg.com/images/og-image.jpg">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
-    <!-- Favicon - Multiple sizes for better Google indexing -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="images/logo.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="images/logo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style.css?v=8">
+    <link rel="stylesheet" href="css/style.css?v=19">
 </head>
 <body>
     <!-- Header -->
@@ -78,6 +78,8 @@
         </nav>
     </header>
 
+    <main id="main-content">
+
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
@@ -112,7 +114,7 @@
                             <div class="contact-icon">✉️</div>
                             <div class="contact-content">
                                 <h4>Email</h4>
-                                <p>younes.zeghari@buildzeg.om</p>
+                                <p>younes.zeghari@buildzeg.com</p>
                                 <p>We respond within 24 hours</p>
                             </div>
                         </div>
@@ -178,6 +180,7 @@
                             <span class="btn-text">Send Message</span>
                             <span class="btn-loading">Sending...</span>
                         </button>
+                        <div class="form-error" id="form-error" role="alert"></div>
                     </form>
                     
                     <!-- Success Message -->
@@ -209,6 +212,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -239,7 +244,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 BUILDZEG. All rights reserved. | Design meets precision</p>
+                <p>&copy; 2026 BUILDZEG. All rights reserved. | Design meets precision</p>
             </div>
         </div>
     </footer>
@@ -253,58 +258,7 @@
                  publicKey: "bPhlQjyp-hKx7Z1Z4" // 🔑 ta clé publique (ne pas changer)
              });
          })();
- 
-         // Handle form submission
-         document.getElementById("contact-form").addEventListener("submit", function(event) {
-             event.preventDefault();
-             // Prevent other submit listeners (from global script) from running on this form
-             if (event.stopImmediatePropagation) {
-                 event.stopImmediatePropagation();
-             }
- 
-             const btn = event.target.querySelector("button");
-             btn.disabled = true;
-             btn.textContent = "Sending...";
- 
-             emailjs.send("service_ntz0utf", "template_ymfdbdf", {
-                 from_name: document.getElementById("name").value,
-                 from_email: document.getElementById("email").value,
-                 phone: document.getElementById("phone").value,
-                 message: document.getElementById("message").value
-             })
-             .then(() => {
-                const successEl = document.getElementById("form-success");
-                if (successEl) {
-                    successEl.style.display = "block";
-                }
-                const errorEl = document.getElementById("form-error");
-                if (errorEl) {
-                    errorEl.style.display = "none";
-                }
-                 btn.disabled = false;
-                 btn.textContent = "Send Message";
-                 document.getElementById("contact-form").reset();
-
-                // Auto-hide success message after ~3 seconds
-                setTimeout(() => {
-                    if (successEl) {
-                        successEl.style.display = "none";
-                    }
-                }, 3000);
-             })
-             .catch(() => {
-                const errorEl = document.getElementById("form-error");
-                if (errorEl) {
-                    errorEl.style.display = "block";
-                }
-                const successEl = document.getElementById("form-success");
-                if (successEl) {
-                    successEl.style.display = "none";
-                }
-                 btn.disabled = false;
-                 btn.textContent = "Send Message";
-             });
-         });
+         // Form validation and sending are handled in js/script.js
      </script>
 
     <script src="js/script.js"></script>

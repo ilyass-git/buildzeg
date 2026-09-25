@@ -15,9 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            console.log('Navigation link clicked:', this.href, this.textContent);
-            // Don't prevent default - let the link work normally
+        link.addEventListener('click', function() {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
         });
@@ -186,36 +184,59 @@ function clearErrors() {
     });
 }
 
+// ===== CONTACT FORM SENDING (EmailJS) =====
+const CONTACT_RECIPIENT = 'younes.zeghari@buildzeg.com';
+const EMAILJS_SERVICE_ID = 'service_ntz0utf';
+const EMAILJS_TEMPLATE_ID = 'template_ymfdbdf';
+
 function submitForm() {
     const submitBtn = document.querySelector('.form-submit');
     const btnText = submitBtn.querySelector('.btn-text');
     const btnLoading = submitBtn.querySelector('.btn-loading');
     const formSuccess = document.getElementById('form-success');
+    const formError = document.getElementById('form-error');
     const contactForm = document.getElementById('contact-form');
-    
-    // Show loading state
-    btnText.style.display = 'none';
-    btnLoading.style.display = 'inline';
-    submitBtn.disabled = true;
-    
-    // Simulate form submission (replace with actual form handling)
-    setTimeout(() => {
-        // Hide form and show success message
-        contactForm.style.display = 'none';
+
+    function setLoading(loading) {
+        btnText.style.display = loading ? 'none' : 'inline';
+        btnLoading.style.display = loading ? 'inline' : 'none';
+        submitBtn.disabled = loading;
+    }
+
+    function showSendError() {
+        showError(formError, 'Sorry, your message could not be sent. Please try again or email us directly at ' + CONTACT_RECIPIENT + '.');
+    }
+
+    if (typeof emailjs === 'undefined') {
+        showSendError();
+        return;
+    }
+
+    setLoading(true);
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: CONTACT_RECIPIENT,
+        from_name: document.getElementById('name').value.trim(),
+        from_email: document.getElementById('email').value.trim(),
+        reply_to: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        message: document.getElementById('message').value.trim()
+    })
+    .then(() => {
+        setLoading(false);
+        contactForm.reset();
         formSuccess.style.display = 'block';
-        
-        // Reset form after 5 seconds
+
+        // Auto-hide success message after a few seconds
         setTimeout(() => {
-            contactForm.style.display = 'block';
             formSuccess.style.display = 'none';
-            contactForm.reset();
-            
-            // Reset button state
-            btnText.style.display = 'inline';
-            btnLoading.style.display = 'none';
-            submitBtn.disabled = false;
         }, 5000);
-    }, 2000);
+    })
+    .catch(() => {
+        setLoading(false);
+        formSuccess.style.display = 'none';
+        showSendError();
+    });
 }
 
 // ===== LAZY LOADING FOR IMAGES =====
@@ -300,19 +321,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== PERFORMANCE OPTIMIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Debounce function for scroll events
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
-    
     // Throttle function for resize events
     function throttle(func, limit) {
         let inThrottle;
@@ -326,21 +334,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
     }
-    
-    // Optimized scroll handler
-    const optimizedScrollHandler = debounce(function() {
-        // Header scroll effect
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
-        } else {
-            header.style.background = '#ffffff';
-            header.style.backdropFilter = 'none';
-        }
-    }, 10);
-    
-    window.addEventListener('scroll', optimizedScrollHandler);
     
     // Optimized resize handler
     const optimizedResizeHandler = throttle(function() {
@@ -412,21 +405,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.body.insertBefore(skipLink, document.body.firstChild);
-});
-
-// ===== PROJECT CARD HOVER EFFECTS =====
-document.addEventListener('DOMContentLoaded', function() {
-    const projectCards = document.querySelectorAll('.project-card, .service-card');
-    
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
 });
 
 // ===== STATS COUNTER ANIMATION =====
@@ -519,12 +497,6 @@ document.addEventListener('DOMContentLoaded', function() {
             errorElement.classList.remove('show');
         }
     }
-});
-
-// ===== ERROR HANDLING =====
-window.addEventListener('error', function(e) {
-    console.error('JavaScript Error:', e.error);
-    // In production, you might want to send this to an error tracking service
 });
 
 // ===== FAQ ACCORDION FUNCTIONALITY =====
@@ -632,63 +604,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-// ===== CLIENTS SLIDER FUNCTIONALITY =====
-document.addEventListener('DOMContentLoaded', function() {
-    const clientsTrack = document.getElementById('clients-track');
-    const prevBtn = document.getElementById('clients-prev');
-    const nextBtn = document.getElementById('clients-next');
-    
-    if (!clientsTrack || !prevBtn || !nextBtn) return;
-    
-    const clientLogos = clientsTrack.querySelectorAll('.client-logo');
-    const totalLogos = clientLogos.length;
-    let currentIndex = 0;
-    const logosPerView = 3; // Nombre de logos visibles à la fois
-    const maxIndex = Math.max(0, totalLogos - logosPerView);
-    
-    function updateSlider() {
-        const translateX = -(currentIndex * (100 / logosPerView));
-        clientsTrack.style.transform = `translateX(${translateX}%)`;
-        
-        // Désactiver les boutons aux extrémités
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= maxIndex;
-    }
-    
-    function nextSlide() {
-        if (currentIndex < maxIndex) {
-            currentIndex++;
-            updateSlider();
-        }
-    }
-    
-    function prevSlide() {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-        }
-    }
-    
-    // Event listeners
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-    
-    // Initialiser le slider
-    updateSlider();
-    
-    // Gestion du redimensionnement
-    window.addEventListener('resize', function() {
-        const newMaxIndex = Math.max(0, totalLogos - logosPerView);
-        if (currentIndex > newMaxIndex) {
-            currentIndex = newMaxIndex;
-        }
-        updateSlider();
-    });
-});
-
-// ===== CONSOLE WELCOME MESSAGE =====
-console.log('%c🏗️ BUILDZEG Website', 'color: #c59a6d; font-size: 20px; font-weight: bold;');
-console.log('%cWebsite developed with ❤️ for BUILDZEG', 'color: #666; font-size: 14px;');
-console.log('%cDesign meets precision', 'color: #999; font-size: 12px;');
-console.log('%cFor technical support, contact the development team', 'color: #999; font-size: 12px;');
