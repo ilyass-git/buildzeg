@@ -8,6 +8,7 @@
 - **SEO** : `lang="en"`, image de partage social dédiée (`og-image.jpg`), vrais favicons, sitemap mis à jour
 - **Code** : suppression du code dupliqué / inutilisé et des `console.log`, lien « Skip to main content » réparé
 - **Textes** : fautes corrigées (Design, Apartment, Keeping), copyright 2026
+- **Version française** : bouton FR / EN dans la navigation, tout le site traduit en français (`js/i18n.js`), choix de langue mémorisé
 
 ## Version 2.0 - Mise à jour de l'identité visuelle
 

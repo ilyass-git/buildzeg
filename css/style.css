@@ -210,6 +210,14 @@ p {
     background: var(--secondary-color);
 }
 
+/* Language switch (EN / FR) - looks like a nav link */
+.lang-switch {
+    background: none;
+    border: 1px solid var(--border-color);
+    font-family: inherit;
+    line-height: inherit;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;

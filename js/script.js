@@ -98,6 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     
     if (contactForm) {
+        // Messages already shown would stay in the previous language
+        document.addEventListener('languagechange', clearErrors);
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -171,8 +174,13 @@ function validateForm() {
     return isValid;
 }
 
+// Translate a message with js/i18n.js (falls back to English)
+function t(message) {
+    return window.BuildzegI18n ? window.BuildzegI18n.t(message) : message;
+}
+
 function showError(errorElement, message) {
-    errorElement.textContent = message;
+    errorElement.textContent = t(message);
     errorElement.classList.add('show');
 }
 
@@ -204,7 +212,7 @@ function submitForm() {
     }
 
     function showSendError() {
-        showError(formError, 'Sorry, your message could not be sent. Please try again or email us directly at ' + CONTACT_RECIPIENT + '.');
+        showError(formError, t('Sorry, your message could not be sent. Please try again or email us directly at') + ' ' + CONTACT_RECIPIENT + '.');
     }
 
     if (typeof emailjs === 'undefined') {
@@ -263,6 +271,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollToTopBtn = document.createElement('button');
     scrollToTopBtn.innerHTML = '↑';
     scrollToTopBtn.className = 'scroll-to-top';
+    scrollToTopBtn.setAttribute('aria-label', t('Back to top'));
+    document.addEventListener('languagechange', function() {
+        scrollToTopBtn.setAttribute('aria-label', t('Back to top'));
+    });
     scrollToTopBtn.style.cssText = `
         position: fixed;
         bottom: 20px;
@@ -381,7 +393,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Skip to main content link
     const skipLink = document.createElement('a');
     skipLink.href = '#main-content';
-    skipLink.textContent = 'Skip to main content';
+    skipLink.textContent = t('Skip to main content');
+    document.addEventListener('languagechange', function() {
+        skipLink.textContent = t('Skip to main content');
+    });
     skipLink.className = 'skip-link';
     skipLink.style.cssText = `
         position: absolute;

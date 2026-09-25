@@ -16,6 +16,7 @@ Live site: [buildzeg.com](https://buildzeg.com)
 ├── contact.html      # Contact details + contact form (EmailJS)
 ├── css/style.css     # All styles
 ├── js/script.js      # Menu, animations, carousel, FAQ, form validation and sending
+├── js/i18n.js        # English / French switch and French translations
 ├── images/           # Optimised images, favicons, social share image (og-image.jpg)
 ├── favicon.ico
 ├── robots.txt
@@ -28,6 +29,17 @@ Static site: no build step and no dependencies.
 
 Open `index.html` in a browser, or serve the folder (for example with the VS Code
 "Live Server" extension, or `python -m http.server`).
+
+## English / French
+
+The pages are written in English. The **FR / EN** button in the navigation switches the
+whole site to French; the choice is remembered (browser `localStorage`) across pages and visits.
+
+Translations live in `js/i18n.js`, in the `FR` object: each line maps the **exact English
+text** (as it appears on the page, spaces collapsed) to its French version. When you add or
+change a text in the HTML, add or update its line in `FR`, otherwise it stays in English.
+Messages created by `js/script.js` (form errors, etc.) go through the `t()` helper and are
+translated the same way.
 
 ## Contact form
 
